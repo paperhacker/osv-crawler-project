@@ -5,12 +5,12 @@ import (
     "flag"
     "sync"
 
-    "github.com/aws/aws-sdk-go-v2/config"
+    awscfg "github.com/aws/aws-sdk-go-v2/config"
     "github.com/aws/aws-sdk-go-v2/service/s3"
     "github.com/joho/godotenv"
     "github.com/rs/zerolog/log"
 
-    "github.com/paperhacker/osv-crawler-project/config"
+    myconfig "github.com/paperhacker/osv-crawler-project/config"
     "github.com/paperhacker/osv-crawler-project/crawler"
     "github.com/paperhacker/osv-crawler-project/input"
     "github.com/paperhacker/osv-crawler-project/logger"
@@ -27,10 +27,10 @@ func main() {
 
     logger.Init()
 
-    cfg := config.Load()
+    cfg := myconfig.Load()
 
     ctx := context.Background()
-    awsCfg, err := config.LoadDefaultConfig(ctx)
+    awsCfg, err := awscfg.LoadDefaultConfig(ctx)
     if err != nil {
         log.Fatal().Err(err).Msg("Unable to load AWS config")
     }
