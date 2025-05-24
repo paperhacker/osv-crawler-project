@@ -3,8 +3,6 @@ package main
 import (
     "context"
     "flag"
-    "os"
-    "strings"
     "sync"
 
     "github.com/aws/aws-sdk-go-v2/config"
