@@ -54,7 +54,7 @@ func Scrape(ctx context.Context, target input.Target, bucket, prefix string, s3C
     })
 
     if err := c.Visit(target.URL); err != nil {
-        return fmt.Errorf("visit failed: %w", err)
+        return fmt.Errorf("visit now failed: %w", err)
     }
 
     c.Wait()
