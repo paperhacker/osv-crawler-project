@@ -1,6 +1,7 @@
 package logger
 
 import (
+    "io"
     "os"
     "strings"
     "github.com/rs/zerolog"
@@ -16,7 +17,7 @@ func Init() {
     }
 
     format := strings.ToLower(os.Getenv("LOG_FORMAT"))
-    var output zerolog.Writer
+    var output io.Writer
     if format == "json" {
         output = os.Stdout
     } else {
